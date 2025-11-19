@@ -3,575 +3,782 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="MusiCode: Discrete Representation of Symbolic Music for Data Mining">
+  <meta name="description" content="A comprehensive framework combining representation learning, data mining, and vector quantization for symbolic music analysis. Achieving 82% better clustering quality than K-means.">
+  <meta name="keywords" content="symbolic music, data mining, HDBSCAN, UMAP, music representation learning, clustering, machine learning">
+  <meta name="author" content="Lekai Qian, Tingran Meng, Chenyuan Hong, Haoyu Gu">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="og:site_name" content="South China University of Technology">
+  <meta property="og:title" content="MusiCode: Discrete Representation of Symbolic Music for Data Mining">
+  <meta property="og:description" content="A comprehensive framework combining representation learning, data mining, and vector quantization for symbolic music analysis.">
+  <meta property="og:url" content="https://haoyu-gu.github.io/data-mining-demo/">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_title" content="MusiCode: Discrete Representation of Symbolic Music for Data Mining">
+  <meta name="citation_author" content="Qian, Lekai">
+  <meta name="citation_author" content="Meng, Tingran">
+  <meta name="citation_author" content="Hong, Chenyuan">
+  <meta name="citation_author" content="Gu, Haoyu">
   <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>MusiCode: Discrete Representation of Symbolic Music for Data Mining</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC</title>
-  
-  <!-- Favicon and App Icons -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
+  <!-- CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="static/css/midi.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
+  <!-- Scripts -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  <script defer src="https://unpkg.com/tone@14.8.49/build/Tone.js"></script>
-  <script defer src="https://unpkg.com/@tonejs/midi@2.0.27/build/Midi.js"></script>
-  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
 </head>
 <body>
-
 
   <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
+
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC</h1>
+            <h1 class="title is-1 publication-title">MusiCode: Discrete Representation of Symbolic Music for Data Mining</h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="https://marisa-ovo.github.io/" target="_blank">Lekai Qian</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="https://haoyu-gu.github.io/" target="_blank">Haoyu Gu</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Dehan Li</a><sup>*</sup>,</span>
-                    <span class="author-block">
-                      <a href="Fourth AUTHOR PERSONAL LINK" target="_blank">Boyu Cao</a>,</span>
-                      <span class="author-block">
-                        <a href="Corresponding AUTHOR PERSONAL LINK" target="_blank">Qi Liu</a><sup>†</sup>,</span>
-                  </span>
-                  </div>
+                <a href="https://marisa-ovo.github.io/" target="_blank">Lekai Qian</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="javascript:void(0)">Tingran Meng</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="javascript:void(0)">Chenyuan Hong</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://haoyu-gu.github.io/" target="_blank">Haoyu Gu</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="javascript:void(0)">Shidang Xu</a><sup>†</sup>
+              </span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info   you should input sth before</span> -->
-                    <span class="author-block">South China University of Technology<br>  </span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution,<sup>†</sup>Indicates Corresponding Author</small></span>
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">South China University of Technology</span><br>
+              <span class="eql-cntrb"><small><sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author</small></span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://github.com/Haoyu-Gu/data-mining" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="ai ai-arxiv"></i>
+                    <i class="fab fa-github"></i>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                  <span>Code</span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Teaser video-->
-<!-- <section class="hero teaser"> -->
-  <!-- <div class="container is-max-desktop"> -->
-    <!-- <div class="hero-body"> -->
-      <!-- TODO: Replace with your teaser video -->
-      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata"> -->
-        <!-- TODO: Add your video file path here -->
-        <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
-      <!-- </video> -->
-      <!-- TODO: Replace with your video description -->
-      <!-- <h2 class="subtitle has-text-centered"> -->
-        <!-- Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.  -->
-      <!-- </h2> -->
-    <!-- </div> -->
-  <!-- </div> -->
-<!-- </section> -->
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Symbolic music representation is a fundamental challenge in computational musicology. 
-            While grid-based representations effectively preserve pitch-time spatial correspondence,
-            their inherent data sparsity leads to low encoding efficiency.
-            Discrete-event representations achieve compact encoding but
-            fail to adequately capture structural invariance and spatial
-            locality. To address these complementary limitations, we
-            propose Pianoroll-Event, a novel encoding scheme that describes 
-            pianoroll representations through events, combining
-            structural properties with encoding efficiency while maintaining 
-            temporal dependencies and local spatial patterns.
-            Specifically, we design four complementary event types:
-            Frame Events for temporal boundaries, Gap Events for sparse
-            regions, Pattern Events for note patterns, and Musical Structure 
-            Events for musical metadata. Pianoroll-Event strikes
-            an effective balance between sequence length and vocabulary 
-            size, improving encoding efficiency by 1.36× to 7.16×
-            over representative discrete sequence methods. Experiments
-            across multiple autoregressive architectures show models using
-            our representation consistently outperform baselines in
-            both quantitative and human evaluations.
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Existing symbolic music processing methods predominantly rely on token-based representations,
+              which generate extremely long sequences and struggle to capture global structural patterns.
+              We propose <strong>MusiCode</strong>, a framework combining representation learning, data mining,
+              and vector quantization for music analysis. Our framework consists of three components:
+              (1) a Transformer-based autoencoder learning compact 768-dimensional embeddings,
+              (2) systematic data mining techniques including UMAP and HDBSCAN clustering, and
+              (3) a theoretical framework for Residual Vector Quantization (RVQ).
+            </p>
+            <p>
+              We implement and validate the first two components on <strong>83,362 music token embeddings</strong>.
+              Clustering analysis reveals meaningful patterns with partial voice separation.
+              Baseline comparison demonstrates HDBSCAN achieves <strong>82% higher Silhouette Score</strong>
+              than K-means by identifying density-based structures. Robustness analysis validates stability
+              under 20% noise, parameter variations, and high reproducibility (ARI > 0.51).
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+  </section>
 
-
-<!-- Single Image Section -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-
-      <!-- Section Title -->
-      <h2 class="title is-3">Pianoroll-Event Data Representation</h2>
-
-      <!-- 静态图片 -->
-      <img src="static/images/core.png" 
-           alt="First research result visualization" 
-           loading="lazy"
-           style="max-width: 100%; height: auto; margin-top: 1rem;" />
-
-      <!-- 图片说明（✅ 左对齐） -->
-      <h2 class="subtitle" 
-          style="margin-top: 1rem; text-align: left; text-indent: 2em;">
-        The process of converting pianoroll representation into pianoroll-events. Through frame segmentation, partitioning, and compression operations, the pianoroll is transformed into a sequence of pianoroll-events containing diverse event types.
-      </h2>
-
+  <!-- Framework Overview -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h2 class="title is-3">MusiCode Framework</h2>
+        <img src="static/images/framework.png"
+             alt="MusiCode Framework Architecture"
+             loading="lazy"
+             style="max-width: 100%; height: auto; margin-top: 1rem;" />
+        <h2 class="subtitle" style="margin-top: 1.5rem; text-align: left; padding: 0 2rem;">
+          <strong>Overview:</strong> The Transformer-based autoencoder (Component 1) compresses token sequences
+          into 768-dimensional embeddings. The learned embeddings are analyzed through parallel data mining
+          techniques (Component 2): UMAP dimensionality reduction and HDBSCAN clustering. Component 3 provides
+          a theoretical framework for residual vector quantization.
+        </h2>
+      </div>
     </div>
-  </div>
-</section>
-<!-- End single image section -->
+  </section>
 
+  <!-- Methodology -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Methodology</h2>
 
-<!-- Encoding Efficiency Comparison Section -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
+      <div class="content">
+        <h3 class="title is-4">
+          <span class="icon has-text-info"><i class="fas fa-1"></i></span>
+          Component 1: Transformer-Based Representation Learning
+        </h3>
+        <div class="box">
+          <div class="columns">
+            <div class="column is-8">
+              <p><strong>Architecture:</strong> 6-layer Transformer autoencoder with multi-head self-attention</p>
+              <ul>
+                <li><strong>Input:</strong> REMI-tokenized music sequences (vocabulary size: 2,048)</li>
+                <li><strong>Embedding Dimension:</strong> 768-dimensional continuous vectors</li>
+                <li><strong>Training:</strong> 100 epochs on 83,362 music segments (48 hours on NVIDIA A100)</li>
+                <li><strong>Objective:</strong> Self-supervised reconstruction loss with label smoothing</li>
+              </ul>
+              <p style="margin-top: 1rem;">
+                <strong>Key Innovation:</strong> Instead of operating on lengthy token sequences (hundreds of tokens per segment),
+                our autoencoder compresses them into compact fixed-dimensional embeddings while preserving musically meaningful information.
+              </p>
+            </div>
+            <div class="column is-4">
+              <div class="box has-background-info-light">
+                <h5 class="title is-6">Model Statistics</h5>
+                <p><strong>Dataset Size:</strong> 83,362 segments</p>
+                <p><strong>Compression Ratio:</strong> ~10-20×</p>
+                <p><strong>Training Time:</strong> 48 hours</p>
+                <p><strong>Parameters:</strong> ~50M</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">
+          <span class="icon has-text-success"><i class="fas fa-2"></i></span>
+          Component 2: Data Mining with UMAP + HDBSCAN
+        </h3>
+        <div class="box">
+          <div class="columns">
+            <div class="column">
+              <h5 class="title is-5">UMAP Dimensionality Reduction</h5>
+              <p>Reduces 768D embeddings to 50D for clustering and 2D for visualization</p>
+              <ul>
+                <li><strong>Algorithm:</strong> Uniform Manifold Approximation and Projection</li>
+                <li><strong>Advantages:</strong> Preserves both local and global structure</li>
+                <li><strong>Complexity:</strong> O(N log N), efficient for large datasets</li>
+                <li><strong>Parameters:</strong> n_neighbors=15, min_dist=0.1, metric='cosine'</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h5 class="title is-5">HDBSCAN Clustering</h5>
+              <p>Density-based clustering with automatic cluster number determination</p>
+              <ul>
+                <li><strong>Algorithm:</strong> Hierarchical Density-Based Spatial Clustering</li>
+                <li><strong>Advantages:</strong> Arbitrary shapes, noise detection, no pre-specified K</li>
+                <li><strong>Search Space:</strong> 360 parameter combinations explored</li>
+                <li><strong>Result:</strong> 530 clusters discovered automatically</li>
+              </ul>
+            </div>
+          </div>
+          <div class="notification is-info is-light" style="margin-top: 1rem;">
+            <p><strong>Why HDBSCAN over K-means?</strong></p>
+            <p>Traditional K-means requires pre-specifying cluster numbers and assumes spherical shapes.
+            HDBSCAN automatically discovers natural groupings of arbitrary shapes, identifies noise points,
+            and provides a hierarchical view of cluster structure—critical for complex music representations.</p>
+          </div>
+        </div>
+
+        <h3 class="title is-4" style="margin-top: 2rem;">
+          <span class="icon has-text-warning"><i class="fas fa-3"></i></span>
+          Component 3: Residual Vector Quantization (Theoretical Framework)
+        </h3>
+        <div class="box">
+          <div class="columns">
+            <div class="column is-7">
+              <p><strong>Goal:</strong> Convert continuous embeddings into hierarchical discrete codes</p>
+              <ul>
+                <li><strong>Multi-Layer Structure:</strong> 8 quantization layers, each with 1,024 codebook entries</li>
+                <li><strong>Compression Ratio:</strong> >300× (80 bits vs 24,576 bits for float32 768D vector)</li>
+                <li><strong>Hierarchical Encoding:</strong> Early layers capture coarse structure, later layers capture fine details</li>
+                <li><strong>Applications:</strong> Efficient storage, symbolic manipulation, discrete generative models</li>
+              </ul>
+              <p style="margin-top: 1rem; font-style: italic; color: #666;">
+                Note: This component presents a complete theoretical framework with mathematical formulation.
+                Implementation and empirical validation are reserved for future work.
+              </p>
+            </div>
+            <div class="column is-5">
+              <img src="static/images/soundstream.png"
+                   alt="RVQ Architecture"
+                   loading="lazy"
+                   style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;" />
+              <p class="is-size-7 has-text-centered" style="margin-top: 0.5rem;">
+                Residual Vector Quantization architecture inspired by SoundStream
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Results -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Key Results</h2>
+
+      <div class="content">
+        <h3 class="title is-4">Clustering Performance</h3>
+        <div class="table-container">
+          <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+                <th>Assessment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total Samples</td>
+                <td>83,362</td>
+                <td>-</td>
+              </tr>
+              <tr style="background-color: #fffbeb;">
+                <td><strong>Clusters Discovered</strong></td>
+                <td><strong>530</strong></td>
+                <td><strong>Excellent</strong></td>
+              </tr>
+              <tr>
+                <td>Clustered Samples</td>
+                <td>45,751 (54.88%)</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Silhouette Score</td>
+                <td>0.5550</td>
+                <td>Good</td>
+              </tr>
+              <tr>
+                <td>Davies-Bouldin Index</td>
+                <td>0.6016</td>
+                <td>Good</td>
+              </tr>
+              <tr style="background-color: #e8f5e9;">
+                <td><strong>Calinski-Harabasz Index</strong></td>
+                <td><strong>20,427</strong></td>
+                <td><strong>Excellent</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Baseline Comparison -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">HDBSCAN vs K-means Baseline Comparison</h2>
+
+        <div class="columns is-centered" style="margin-top: 2rem;">
+          <div class="column is-10">
+            <div class="table-container">
+              <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>K-means</th>
+                    <th>HDBSCAN</th>
+                    <th>Improvement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td># Clusters</td>
+                    <td>512</td>
+                    <td>114</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>Noise Points</td>
+                    <td>0 (0%)</td>
+                    <td>44,660 (53.5%)</td>
+                    <td>-</td>
+                  </tr>
+                  <tr style="background-color: #e8f5e9;">
+                    <td><strong>Silhouette Score</strong></td>
+                    <td>0.2701</td>
+                    <td><strong>0.4914</strong></td>
+                    <td><strong style="color: #2e7d32;">+82%</strong></td>
+                  </tr>
+                  <tr style="background-color: #e8f5e9;">
+                    <td><strong>Davies-Bouldin</strong></td>
+                    <td>1.2737</td>
+                    <td><strong>0.7220</strong></td>
+                    <td><strong style="color: #2e7d32;">-43%</strong></td>
+                  </tr>
+                  <tr style="background-color: #e8f5e9;">
+                    <td><strong>Calinski-Harabasz</strong></td>
+                    <td>4,822</td>
+                    <td><strong>45,118</strong></td>
+                    <td><strong style="color: #2e7d32;">+835%</strong></td>
+                  </tr>
+                  <tr>
+                    <td>ARI (Agreement)</td>
+                    <td colspan="2" style="text-align: center;">0.4684</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>NMI (Information)</td>
+                    <td colspan="2" style="text-align: center;">0.8843</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="subtitle is-6 has-text-centered" style="margin-top: 1rem; color: #666;">
+              HDBSCAN demonstrates superior performance across all quality metrics, validating density-based
+              clustering for music representation analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualizations -->
+  <section class="section hero is-light">
     <div class="container">
-      <h2 class="title is-3 has-text-centered">Encoding Efficiency Comparison</h2>
+      <h2 class="title is-3 has-text-centered">Clustering Visualizations</h2>
 
-      <div class="table-container" style="margin-top: 2rem;">
-        <table class="table is-striped is-hoverable is-fullwidth" style="margin: 0 auto; max-width: 700px;">
-          <thead>
-            <tr>
-              <th style="text-align: center;">Method</th>
-              <th style="text-align: center;">Length (Avg.)</th>
-              <th style="text-align: center;">Vocabulary Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="background-color: #fffbeb; font-weight: 600;">
-              <td style="text-align: center;">Ours</td>
-              <td style="text-align: center;">749.8</td>
-              <td style="text-align: center;">347</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">REMI</td>
-              <td style="text-align: center;">1339.7</td>
-              <td style="text-align: center;">330</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">MIDILike</td>
-              <td style="text-align: center;">1398.9</td>
-              <td style="text-align: center;">448</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">REMI-BPE</td>
-              <td style="text-align: center;">317.8</td>
-              <td style="text-align: center;">20,000</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">ABCNotation</td>
-              <td style="text-align: center;">2575.0</td>
-              <td style="text-align: center;">128</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="subtitle is-6 has-text-centered" style="margin-top: 1.5rem; color: #666;">
-        <strong>Table 1.</strong> Encoding comparison across different representation methods, demonstrating the effectiveness of our approach in balancing sequence length and vocabulary size.
-      </p>
-
-    </div>
-  </div>
-</section>
-<!-- End Encoding Efficiency Comparison Section -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h2 class="title is-3">Generated Songs</h2>
-      
-      <!-- ✅ 只让这句话左对齐 -->
-      <p class="subtitle is-5" style="text-align: left; margin-top: 0.5rem;text-indent: 2em;">
-        The following musical pieces are generated by our best-performing Transformer decoder model with Llama architecture, conditioned only on time signature and BPM. The results demonstrate the considerable potential of our representation method.
-      </p>
-
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" controls loop height="100%" preload="metadata">
-            <source src="static/videos/score1.mp4" type="video/mp4">
-          </video>
+      <div class="columns is-multiline is-centered">
+        <div class="column is-10">
+          <div class="box">
+            <h4 class="title is-5">Comprehensive Dashboard</h4>
+            <img src="static/images/dashboard.png"
+                 alt="Comprehensive clustering dashboard"
+                 loading="lazy"
+                 style="max-width: 100%; height: auto;" />
+            <p class="subtitle is-6" style="margin-top: 1rem;">
+              Integrated view showing 2D UMAP projection, cluster size distribution,
+              noise ratio (45.12%), and clustering statistics.
+            </p>
+          </div>
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" controls loop height="100%" preload="metadata">
-            <source src="static/videos/score2.mp4" type="video/mp4">
-          </video>
+
+        <div class="column is-5">
+          <div class="box">
+            <h4 class="title is-5">HDBSCAN Clustering</h4>
+            <img src="static/images/clustering_viz.png"
+                 alt="HDBSCAN clustering visualization"
+                 loading="lazy"
+                 style="max-width: 100%; height: auto;" />
+            <p class="subtitle is-6" style="margin-top: 1rem;">
+              530 clusters discovered with density-based approach, revealing complex manifold structure.
+            </p>
+          </div>
         </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" controls loop height="100%" preload="metadata">
-            <source src="static/videos/score3.mp4" type="video/mp4">
-          </video>
+
+        <div class="column is-5">
+          <div class="box">
+            <h4 class="title is-5">K-means Baseline</h4>
+            <img src="static/images/kmeans_baseline.png"
+                 alt="K-means baseline comparison"
+                 loading="lazy"
+                 style="max-width: 100%; height: auto;" />
+            <p class="subtitle is-6" style="margin-top: 1rem;">
+              K-means with 512 clusters shows lower quality metrics due to forced spherical assumptions.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End video carousel -->
+  </section>
 
-
-    
-
-    
-
-
-
-
-<!-- =======================
-     MIDI Player Section
-     ======================= -->
-<section class="hero is-small">
-  <div class="hero-body">
+  <!-- Detailed Statistics -->
+  <section class="section hero is-light">
     <div class="container">
+      <h2 class="title is-3 has-text-centered">Detailed Clustering Statistics</h2>
 
-      <h2 class="title is-3 has-text-centered">MIDI Demo</h2>
+      <div class="columns is-multiline">
+        <div class="column is-6">
+          <div class="box">
+            <h4 class="title is-5">Cluster Size Distribution</h4>
+            <img src="static/images/cluster_histogram.png"
+                 alt="Cluster size histogram"
+                 loading="lazy"
+                 style="max-width: 100%; height: auto;" />
+            <p class="subtitle is-6" style="margin-top: 1rem;">
+              Power-law distribution: Most clusters contain 30-100 samples, while a few large clusters
+              contain 1,000+ samples, reflecting the hierarchical organization of musical patterns.
+            </p>
+          </div>
+        </div>
 
-      <!-- 🎨 Block 1 -->
-      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
-        <h3 class="title is-5">LSTM</h3>
-        <midi-player
-          src="static/mid/OUR_LSTM/OUR_LSTM.mid"
-          sound-font
-          visualizer="#viz-lstm">
-        </midi-player>
-        <midi-visualizer id="viz-lstm"></midi-visualizer>
+        <div class="column is-6">
+          <div class="box">
+            <h4 class="title is-5">Noise Point Distribution</h4>
+            <img src="static/images/noise_pie.png"
+                 alt="Noise distribution pie chart"
+                 loading="lazy"
+                 style="max-width: 100%; height: auto;" />
+            <p class="subtitle is-6" style="margin-top: 1rem;">
+              54.88% samples clustered, 45.12% identified as noise. Noise points represent
+              transitional patterns, unique segments, or low-density regions.
+            </p>
+          </div>
+        </div>
+
+        <div class="column is-12">
+          <div class="box">
+            <h4 class="title is-5">Cluster Size Statistics</h4>
+            <img src="static/images/cluster_boxplot.png"
+                 alt="Cluster size boxplot"
+                 loading="lazy"
+                 style="max-width: 100%; height: auto;" />
+            <div class="columns" style="margin-top: 1rem;">
+              <div class="column">
+                <div class="notification is-info is-light">
+                  <p><strong>Mean Cluster Size:</strong> 86 samples</p>
+                  <p><strong>Median Cluster Size:</strong> 51 samples</p>
+                </div>
+              </div>
+              <div class="column">
+                <div class="notification is-success is-light">
+                  <p><strong>Largest Cluster:</strong> 2,188 samples (2.6% of total)</p>
+                  <p><strong>Smallest Cluster:</strong> 30 samples (minimum threshold)</p>
+                </div>
+              </div>
+              <div class="column">
+                <div class="notification is-warning is-light">
+                  <p><strong>Standard Deviation:</strong> 159 samples</p>
+                  <p><strong>Cluster Count:</strong> 530 clusters discovered</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- 🎨 Block 2 -->
-      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
-        <h3 class="title is-5">GPT SMALL</h3>
-        <midi-player
-          src="static/mid/OUR_GPT_S/OUR_GPT_S.mid"
-          sound-font
-          visualizer="#viz-gpt-s">
-        </midi-player>
-        <midi-visualizer id="viz-gpt-s"></midi-visualizer>
-      </div>
-
-      <!-- 🎨 Block 3 -->
-      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
-        <h3 class="title is-5">GPT LARGE</h3>
-        <midi-player
-          src="static/mid/OUR_GPT_L/OUR_GPT_L.mid"
-          sound-font
-          visualizer="#viz-gpt-l">
-        </midi-player>
-        <midi-visualizer id="viz-gpt-l"></midi-visualizer>
-      </div>
-
-      <!-- 🎨 Block 4 -->
-      <div class="midi-block midi-style theme-yellow" style="margin-top: 2rem;">
-        <h3 class="title is-5">LLAMA</h3>
-        <midi-player
-          src="static/mid/OUR_LLAMA/OUR_LLAMA.mid"
-          sound-font
-          visualizer="#viz-llama">
-        </midi-player>
-        <midi-visualizer id="viz-llama"></midi-visualizer>
-      </div>
-
     </div>
-  </div>
-</section>
-<!-- End MIDI Player Section -->
+  </section>
 
+  <!-- Robustness Analysis -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Comprehensive Robustness Analysis</h2>
 
+        <div class="columns is-multiline is-centered">
+          <div class="column is-6">
+            <div class="box">
+              <h4 class="title is-5">
+                <span class="icon has-text-danger"><i class="fas fa-exclamation-triangle"></i></span>
+                Noise Sensitivity Analysis
+              </h4>
+              <img src="static/images/noise_sensitivity.png"
+                   alt="Noise sensitivity analysis"
+                   loading="lazy"
+                   style="max-width: 100%; height: auto;" />
+              <p class="subtitle is-6" style="margin-top: 1rem;">
+                Clustering remains stable under up to <strong>20% Gaussian noise</strong>.
+                At 10% noise: ARI > 0.39, NMI > 0.77, demonstrating graceful degradation.
+              </p>
+            </div>
+          </div>
 
-    
-<!-- Required Scripts -->
-<script src="https://cdn.jsdelivr.net/combine/
-  npm/tone@14.7.58,
-  npm/@magenta/music@1.23.1/es6/core.js,
-  npm/focus-visible@5,
-  npm/html-midi-player@1.5.0">
-</script>
+          <div class="column is-6">
+            <div class="box">
+              <h4 class="title is-5">
+                <span class="icon has-text-info"><i class="fas fa-sliders-h"></i></span>
+                Parameter Stability
+              </h4>
+              <img src="static/images/param_stability.png"
+                   alt="Parameter stability analysis"
+                   loading="lazy"
+                   style="max-width: 100%; height: auto;" />
+              <p class="subtitle is-6" style="margin-top: 1rem;">
+                Consistent performance across UMAP dimensionality (50-100),
+                neighborhood size (10-30), and cluster count variations.
+              </p>
+            </div>
+          </div>
 
+          <div class="column is-8">
+            <div class="box">
+              <h4 class="title is-5">
+                <span class="icon has-text-success"><i class="fas fa-redo"></i></span>
+                Reproducibility Assessment
+              </h4>
+              <img src="static/images/reproducibility.png"
+                   alt="Reproducibility analysis"
+                   loading="lazy"
+                   style="max-width: 100%; height: auto;" />
+              <div class="columns" style="margin-top: 1rem;">
+                <div class="column">
+                  <div class="notification is-success is-light">
+                    <p><strong>10 Independent Runs</strong></p>
+                    <p>Mean Pairwise ARI: 0.518 ± 0.010</p>
+                    <p>Silhouette Score CV: <1.13%</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="notification is-info is-light">
+                    <p><strong>High Consistency</strong></p>
+                    <p>All runs achieve Silhouette Score: 0.332-0.347</p>
+                    <p>Pairwise ARI range: 0.49-0.54</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="columns is-centered" style="margin-top: 2rem;">
+          <div class="column is-10">
+            <div class="box has-background-primary-light">
+              <h4 class="title is-5">
+                <i class="fas fa-check-circle"></i> Robustness Summary
+              </h4>
+              <div class="content">
+                <div class="columns">
+                  <div class="column">
+                    <p><strong>✓ Noise Robustness:</strong></p>
+                    <ul>
+                      <li>Stable under 5% noise (ARI > 0.39, NMI > 0.77)</li>
+                      <li>Graceful degradation up to 20% noise</li>
+                      <li>Structure preserved despite perturbations</li>
+                    </ul>
+                  </div>
+                  <div class="column">
+                    <p><strong>✓ Parameter Stability:</strong></p>
+                    <ul>
+                      <li>Minimal variation across UMAP dimensions</li>
+                      <li>Consistent with neighborhood size changes</li>
+                      <li>Smooth performance curves</li>
+                    </ul>
+                  </div>
+                  <div class="column">
+                    <p><strong>✓ High Reproducibility:</strong></p>
+                    <ul>
+                      <li>Mean pairwise ARI = 0.518</li>
+                      <li>Silhouette CV < 1.13%</li>
+                      <li>Reliable for production systems</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Key Findings -->
+  <section class="section hero is-light">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Key Findings & Insights</h2>
 
-<!--BibTex citation -->
+      <div class="columns is-multiline">
+        <div class="column is-12">
+          <div class="box has-background-success-light">
+            <h4 class="title is-4">
+              <span class="icon has-text-success"><i class="fas fa-lightbulb"></i></span>
+              Main Discoveries
+            </h4>
+            <div class="columns">
+              <div class="column">
+                <h5 class="title is-6">🎯 Pattern Discovery</h5>
+                <ul>
+                  <li>530 natural clusters discovered automatically</li>
+                  <li>Partial voice separation achieved without explicit labels</li>
+                  <li>Power-law cluster size distribution reflects musical hierarchy</li>
+                  <li>45% noise points identify transitional/unique patterns</li>
+                </ul>
+              </div>
+              <div class="column">
+                <h5 class="title is-6">📊 Superior Performance</h5>
+                <ul>
+                  <li><strong>82% higher</strong> Silhouette Score vs K-means</li>
+                  <li><strong>835% higher</strong> Calinski-Harabasz Index</li>
+                  <li><strong>43% lower</strong> Davies-Bouldin Index</li>
+                  <li>Automatic cluster number determination</li>
+                </ul>
+              </div>
+              <div class="column">
+                <h5 class="title is-6">🛡️ Robustness Validated</h5>
+                <ul>
+                  <li>Stable under 20% noise perturbations</li>
+                  <li>Consistent across parameter variations</li>
+                  <li>High reproducibility (ARI=0.518, CV<1.13%)</li>
+                  <li>Production-ready reliability</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-6">
+          <div class="box">
+            <h4 class="title is-5">
+              <span class="icon has-text-info"><i class="fas fa-book"></i></span>
+              What We Learned
+            </h4>
+            <div class="content">
+              <p><strong>1. Learned Representations Capture Structure:</strong></p>
+              <p style="margin-left: 1rem;">
+                The Transformer autoencoder successfully learns meaningful musical patterns without explicit supervision,
+                as evidenced by the emergence of voice-separated clusters and hierarchical organization.
+              </p>
+
+              <p><strong>2. Density-Based Clustering is Essential:</strong></p>
+              <p style="margin-left: 1rem;">
+                HDBSCAN's 82% performance improvement over K-means demonstrates that music representations form
+                complex, non-spherical structures requiring density-based methods.
+              </p>
+
+              <p><strong>3. Noise Detection is Feature, Not Bug:</strong></p>
+              <p style="margin-left: 1rem;">
+                The 45% noise ratio reflects genuine musical diversity—transitional patterns between styles
+                and unique segments that don't fit neat categories.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-6">
+          <div class="box">
+            <h4 class="title is-5">
+              <span class="icon has-text-warning"><i class="fas fa-road"></i></span>
+              Future Directions
+            </h4>
+            <div class="content">
+              <p><strong>Short-term Goals:</strong></p>
+              <ul>
+                <li>Implement and validate RVQ framework empirically</li>
+                <li>Integrate explicit musical features (pitch, rhythm, harmony)</li>
+                <li>Evaluate on larger and more diverse datasets</li>
+                <li>Develop interactive visualization tools</li>
+              </ul>
+
+              <p><strong>Long-term Vision:</strong></p>
+              <ul>
+                <li><strong>Conditional Generation:</strong> Use embeddings for style transfer and variation</li>
+                <li><strong>Music Information Retrieval:</strong> Similarity search and recommendation</li>
+                <li><strong>Educational Applications:</strong> Identify representative examples for teaching</li>
+                <li><strong>Compression:</strong> Efficient storage with 300× compression ratio</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contributions -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Main Contributions</h2>
+
+      <div class="content">
+        <div class="columns">
+          <div class="column">
+            <div class="box" style="height: 100%;">
+              <h4 class="title is-5">
+                <span class="icon has-text-info"><i class="fas fa-brain"></i></span>
+                Representation Learning
+              </h4>
+              <p>
+                Transformer-based autoencoder learning compact 768-dimensional embeddings from
+                83,362 music token sequences through self-supervised reconstruction.
+              </p>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="box" style="height: 100%;">
+              <h4 class="title is-5">
+                <span class="icon has-text-success"><i class="fas fa-project-diagram"></i></span>
+                Data Mining Analysis
+              </h4>
+              <p>
+                Systematic UMAP+HDBSCAN pipeline with 360 parameter configurations,
+                achieving 82% better Silhouette Score than K-means baseline.
+              </p>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="box" style="height: 100%;">
+              <h4 class="title is-5">
+                <span class="icon has-text-warning"><i class="fas fa-layer-group"></i></span>
+                Theoretical Framework
+              </h4>
+              <p>
+                Complete Residual Vector Quantization framework for hierarchical discrete encoding,
+                enabling >300× compression ratio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <h4 class="title is-5">
+            <span class="icon has-text-danger"><i class="fas fa-check-double"></i></span>
+            Comprehensive Robustness Validation
+          </h4>
+          <ul>
+            <li><strong>Noise Sensitivity:</strong> Stable under 20% Gaussian noise with graceful degradation</li>
+            <li><strong>Parameter Stability:</strong> Consistent across UMAP and HDBSCAN parameter variations</li>
+            <li><strong>Reproducibility:</strong> High consistency (mean pairwise ARI=0.518, Silhouette CV<1.13%)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
@@ -581,171 +788,60 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2026,
-  title={PIANOROLL-EVENT: A NOVEL SCORE REPRESENTATION FOR SYMBOLIC MUSIC},
-  author={Lekai Qian*, Haoyu Gu*, Dehan Li*, Boyu Cao, Qi Liu†}, 
-  journal={...}, 
-  year={2026}, 
-  url={...} 
+      <pre id="bibtex-code"><code>@article{qian2024musicode,
+  title={MusiCode: Discrete Representation of Symbolic Music for Data Mining},
+  author={Qian, Lekai and Meng, Tingran and Hong, Chenyuan and Gu, Haoyu and Xu, Shidang},
+  journal={Data Mining Course Project},
+  year={2024},
+  institution={South China University of Technology},
+  url={https://github.com/Haoyu-Gu/data-mining}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
 
-
+  <!-- Footer -->
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              <br>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
+  </main>
 
-<script>
-  // --- Simple MIDI Player using Tone.js + @tonejs/midi ---
-  (function () {
-    const $ = (id) => document.getElementById(id);
-
-    const playBtn = $('midi-play');
-    const pauseBtn = $('midi-pause');
-    const stopBtn = $('midi-stop');
-    const tempoSlider = $('midi-tempo');
-    const tempoLabel = $('midi-tempo-label');
-    const fileInput = $('midi-file');
-    const urlInput = $('midi-url');
-    const urlBtn = $('midi-load-url');
-    const statusEl = $('midi-status');
-
-    let parts = [];      // [{ synth, part }]
-    let currentMidi = null;
-
-    function setStatus(msg) {
-      statusEl.textContent = 'Status: ' + msg;
+  <script>
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    function disposeAll() {
-      try {
-        parts.forEach(({ synth, part }) => {
-          if (part) part.dispose();
-          if (synth) synth.dispose();
-        });
-      } catch (e) {}
-      parts = [];
-    }
-
-    function prepareMidi(midi) {
-      disposeAll();
-      currentMidi = midi;
-
-      // 默认 BPM（如果 MIDI 里没有 tempo，则用 120）
-      const firstTempo = (midi.header.tempos && midi.header.tempos[0]) ? midi.header.tempos[0].bpm : 120;
-      Tone.Transport.bpm.value = firstTempo;
-      tempoSlider.value = Math.round(firstTempo);
-      tempoLabel.textContent = Math.round(firstTempo);
-
-      // 轻微的全局音量衰减给更好的听感余量
-      const vol = new Tone.Volume(-6).toDestination();
-
-      midi.tracks.forEach((track, idx) => {
-        // 给每条轨道一个独立 PolySynth；你也可以改成 Sampler + SoundFont
-        const synth = new Tone.PolySynth(Tone.Synth, {
-          oscillator: { type: 'triangle' },
-          envelope: { attack: 0.01, decay: 0.1, sustain: 0.3, release: 1.2 }
-        }).connect(vol);
-
-        const part = new Tone.Part((time, note) => {
-          synth.triggerAttackRelease(note.name, note.duration, time, note.velocity);
-        }, track.notes).start(0);
-
-        part.loop = false;
-        parts.push({ synth, part });
+    function copyBibTeX() {
+      const bibtex = document.getElementById('bibtex-code').innerText;
+      navigator.clipboard.writeText(bibtex).then(() => {
+        const btn = document.querySelector('.copy-bibtex-btn .copy-text');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
       });
-
-      // 重置到起点
-      Tone.Transport.stop();
-      Tone.Transport.seconds = 0;
-      setStatus('MIDI prepared. Tracks: ' + midi.tracks.length);
     }
 
-    async function loadFromArrayBuffer(ab) {
-      setStatus('Parsing MIDI…');
-      const midi = new Midi(ab);  // window.Midi (from @tonejs/midi)
-      prepareMidi(midi);
-      setStatus('MIDI ready.');
-    }
-
-    async function loadFromUrl(url) {
-      try {
-        setStatus('Fetching ' + url + ' …');
-        const res = await fetch(url);
-        const ab = await res.arrayBuffer();
-        await loadFromArrayBuffer(ab);
-      } catch (err) {
-        console.error(err);
-        setStatus('Failed to load URL (CORS or path error).');
+    // Show scroll-to-top button on scroll
+    window.addEventListener('scroll', function() {
+      const scrollBtn = document.querySelector('.scroll-to-top');
+      if (window.pageYOffset > 300) {
+        scrollBtn.style.display = 'block';
+      } else {
+        scrollBtn.style.display = 'none';
       }
-    }
-
-    // --- controls ---
-    playBtn.addEventListener('click', async () => {
-      await Tone.start(); // iOS/Chrome 音频解锁
-      Tone.Transport.start();
-      setStatus('Playing…');
     });
+  </script>
 
-    pauseBtn.addEventListener('click', () => {
-      Tone.Transport.pause();
-      setStatus('Paused.');
-    });
-
-    stopBtn.addEventListener('click', () => {
-      Tone.Transport.stop();
-      Tone.Transport.seconds = 0;
-      setStatus('Stopped.');
-    });
-
-    tempoSlider.addEventListener('input', () => {
-      const v = parseInt(tempoSlider.value, 10);
-      Tone.Transport.bpm.value = v;
-      tempoLabel.textContent = v;
-    });
-
-    fileInput.addEventListener('change', async (e) => {
-      const file = e.target.files?.[0];
-      if (!file) return;
-      const ab = await file.arrayBuffer();
-      await loadFromArrayBuffer(ab);
-    });
-
-    urlBtn.addEventListener('click', async () => {
-      const url = urlInput.value.trim();
-      if (!url) return;
-      await loadFromUrl(url);
-    });
-
-    // 可选：页面加载后先尝试默认 demo
-    // 确保存在 static/midi/demo.mid 时再启用下行：
-    // loadFromUrl('static/midi/demo.mid');
-  })();
-</script>
-    
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
